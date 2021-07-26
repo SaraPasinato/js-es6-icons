@@ -1,0 +1,16 @@
+#filter-section .row{
+    height:70px;
+}
+
+#icons-section {
+    height: calc(100vh - 156px);
+}
+
+.bg-light-secondary{
+    background-color: lightgray; 
+}
+
+.card{
+    box-shadow: 3px 3px 5px  #969595;
+    height: 120px;
+}

@@ -1,6 +1,7 @@
 /*
 ! Milestone 1
-Partendo dalla seguente struttura dati , mostriamo in pagina tutte le icone disponibili come da layout.
+Partendo dalla seguente struttura dati , mostriamo in pagina tutte 
+le icone disponibili come da layout.
 !Milestone 2
 Coloriamo le icone per tipo
 !Milestone 3
@@ -11,4 +12,30 @@ Creiamo una select con i tipi di icone e usiamola per filtrare le icone
    filtrare anche per nome dell'icona
    ?SUPER INCREDIBLE MEGA BONUS: effettuare la ricerca dalla casella di testo in "tempo reale",
    cioè man mano che l'utente digita. */
-console.log("here script");
+
+
+/* //*************** functions utils ********************// */
+const renderCards =(cards,targetElement)=>{
+    let cardTamplate = "";
+    cards.forEach((icon,i) => {
+
+        const hasOffset = i%5===0 ? `offset-lg-1`:` `;
+        cardTamplate += `
+        <div class="col col-sm-4 col-lg-2 ${hasOffset}">
+           <div class="card rounded">
+               <div class="card-body text-center pt-4">
+                   <a href=""><i class="${icon.family} ${icon.prefix}${icon.name} ${icon.prefix}2x"></i></a>
+                   <h3 class="h5 text-uppercase">${icon.name.toUpperCase()}</h3>
+                </div>
+            </div>
+        </div>   
+        `;
+    });
+    targetElement.innerHTML=cardTamplate;
+};
+
+
+// ? STAMPO IN PAGINA
+
+const iconsSection=document.querySelector("#icons-section .row");
+renderCards(icons,iconsSection);

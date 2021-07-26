@@ -103,4 +103,3 @@ const icons = [
   },
 ];
 
-console.log("here data");
