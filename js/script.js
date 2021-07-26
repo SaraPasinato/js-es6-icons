@@ -67,6 +67,19 @@ renderOptions(icons,selectField);
 inputField.addEventListener("input",()=>{
     const filterValue = selectField.value;
     const inputValue = inputField.value;
+   
+    // per aggiungere/rimuovere input text
+    if (filterValue==="name"){
+        inputField.classList.remove("d-none");
+    }else{
+        inputField.classList.add("d-none");
+    }
+
+    if (filterValue === "all") {
+        inputField.classList.add("d-none");
+        renderCards(icons, iconsSection);
+        return;
+    }
     const filteredIcons = icons.filter((icon) =>inputValue===icon.name);
     renderCards(filteredIcons, iconsSection);
 });
@@ -78,6 +91,7 @@ selectField.addEventListener('change', () => {
   
 
     if (filterValue === "all") {
+        inputField.classList.add("d-none");
         renderCards(icons, iconsSection);
         return;
     }
@@ -90,7 +104,7 @@ selectField.addEventListener('change', () => {
 
     
     //? Filtro Dinamico per tipo
-    const filteredIcons = icons.filter((icon) => filterValue === icon.type || inputValue===icon.name);
+    const filteredIcons = icons.filter((icon) => filterValue === icon.type);
     renderCards(filteredIcons, iconsSection);
 });
 
