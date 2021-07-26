@@ -1,9 +1,9 @@
 #filter-section .row{
-    height:70px;
+    height:100px;
 }
 
 #main-icons {
-    height: calc(100vh - 156px);
+    height: calc(100vh - 186px);
 }
 
 .bg-light-secondary{

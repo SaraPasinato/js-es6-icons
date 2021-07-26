@@ -37,7 +37,8 @@ const renderCards = (cards, targetElement) => {
 };
 // ?FUNZIONE: STAMPO OPTIONS
 const renderOptions=(icons,targetElement)=>{
-    const iconTypes=[];
+    //inizializzo con nome così posso inserire nel render nome
+    const iconTypes=["name"];
     icons.forEach(icon=>{
         if(!iconTypes.includes(icon.type)){
             iconTypes.push(icon.type);
@@ -59,17 +60,28 @@ renderCards(icons, iconsSection);
 
 //? Logica: Select 
 const selectField = document.getElementById("filter");
+const inputField =document.getElementById("lb-name");
 renderOptions(icons,selectField);
 
 selectField.addEventListener('change', () => {
     const filterValue = selectField.value;
+    const inputValue = inputField.value;
 
     if (filterValue === "all") {
         renderCards(icons, iconsSection);
         return;
     }
+    // per aggiungere/rimuovere input text
+    if (filterValue==="name"){
+        inputField.classList.remove("d-none");
+    }else{
+        inputField.classList.add("d-none");
+    }
+
+
     //? Filtro Dinamico per tipo
-    const filteredIcons = icons.filter((icon) => filterValue === icon.type);
+    const filteredIcons = icons.filter((icon) => filterValue === icon.type || inputValue===icon.name);
+    console.log(filteredIcons);
     renderCards(filteredIcons, iconsSection);
 });
 
