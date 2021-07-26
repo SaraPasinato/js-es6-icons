@@ -8,9 +8,9 @@ Coloriamo le icone per tipo
 Creiamo una select con i tipi di icone e usiamola per filtrare le icone
  */
 /* 
-   ?BONUS: Provare ad aggiungere una casella di testo che renda possibile 
+   *?BONUS: Provare ad aggiungere una casella di testo che renda possibile 
    filtrare anche per nome dell'icona
-   ?SUPER INCREDIBLE MEGA BONUS: effettuare la ricerca dalla casella di testo in "tempo reale",
+   *?SUPER INCREDIBLE MEGA BONUS: effettuare la ricerca dalla casella di testo in "tempo reale",
    cioè man mano che l'utente digita. */
 
 
@@ -63,9 +63,19 @@ const selectField = document.getElementById("filter");
 const inputField =document.getElementById("lb-name");
 renderOptions(icons,selectField);
 
+//?modifica i valori di stampa  in base al nome
+inputField.addEventListener("input",()=>{
+    const filterValue = selectField.value;
+    const inputValue = inputField.value;
+    const filteredIcons = icons.filter((icon) => filterValue === icon.type || inputValue===icon.name);
+    renderCards(filteredIcons, iconsSection);
+});
+
+//?modifica i valori di stampa  in base al tipo
 selectField.addEventListener('change', () => {
     const filterValue = selectField.value;
     const inputValue = inputField.value;
+  
 
     if (filterValue === "all") {
         renderCards(icons, iconsSection);
@@ -78,10 +88,9 @@ selectField.addEventListener('change', () => {
         inputField.classList.add("d-none");
     }
 
-
+    
     //? Filtro Dinamico per tipo
     const filteredIcons = icons.filter((icon) => filterValue === icon.type || inputValue===icon.name);
-    console.log(filteredIcons);
     renderCards(filteredIcons, iconsSection);
 });
 
