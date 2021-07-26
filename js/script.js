@@ -35,7 +35,22 @@ const renderCards = (cards, targetElement) => {
     });
     targetElement.innerHTML = cardTamplate;
 };
+// ?FUNZIONE: STAMPO OPTIONS
+const renderOptions=(icons,targetElement)=>{
+    const iconTypes=[];
+    icons.forEach(icon=>{
+        if(!iconTypes.includes(icon.type)){
+            iconTypes.push(icon.type);
+        }
+    });
 
+ let options=`<option value="all" selected>all</option>`;
+ iconTypes.forEach(type=>{
+    options+=`<option value="${type}">${type}</option>`;
+ });
+
+ targetElement.innerHTML=options;
+}
 // ? STAMPO IN PAGINA
 
 const iconsSection = document.querySelector("#icons-section .row");
@@ -44,6 +59,7 @@ renderCards(icons, iconsSection);
 
 //? Logica: Select 
 const selectField = document.getElementById("filter");
+renderOptions(icons,selectField);
 
 selectField.addEventListener('change', () => {
     const filterValue = selectField.value;
