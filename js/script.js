@@ -67,7 +67,7 @@ renderOptions(icons,selectField);
 inputField.addEventListener("input",()=>{
     const filterValue = selectField.value;
     const inputValue = inputField.value;
-    const filteredIcons = icons.filter((icon) => filterValue === icon.type || inputValue===icon.name);
+    const filteredIcons = icons.filter((icon) =>inputValue===icon.name);
     renderCards(filteredIcons, iconsSection);
 });
 
