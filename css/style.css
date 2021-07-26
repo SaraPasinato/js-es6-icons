@@ -2,7 +2,7 @@
     height:70px;
 }
 
-#icons-section {
+#main-icons {
     height: calc(100vh - 156px);
 }
 
@@ -13,4 +13,20 @@
 .card{
     box-shadow: 3px 3px 5px  #969595;
     height: 120px;
+}
+
+.animal{
+    color: #00f;
+}
+
+.vegetable{
+    color: #ffa500;
+}
+
+.user{
+    color: #800080;
+}
+
+.company{
+    color:#000;
 }

@@ -24,7 +24,7 @@ const renderCards =(cards,targetElement)=>{
         <div class="col col-sm-4 col-lg-2 ${hasOffset}">
            <div class="card rounded">
                <div class="card-body text-center pt-4">
-                   <a href=""><i class="${icon.family} ${icon.prefix}${icon.name} ${icon.prefix}2x"></i></a>
+                   <a href="" class="${icon.type}"><i class="${icon.family} ${icon.prefix}${icon.name} ${icon.prefix}2x"></i></a>
                    <h3 class="h5 text-uppercase">${icon.name.toUpperCase()}</h3>
                 </div>
             </div>
