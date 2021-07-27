@@ -64,6 +64,8 @@ const inputField =document.getElementById("lb-name");
 renderOptions(icons,selectField);
 
 //?modifica i valori di stampa  in base al nome
+
+
 inputField.addEventListener("input",()=>{
     const filterValue = selectField.value;
     const inputValue = inputField.value;
@@ -80,7 +82,7 @@ inputField.addEventListener("input",()=>{
         renderCards(icons, iconsSection);
         return;
     }
-    const filteredIcons = icons.filter((icon) =>inputValue===icon.name);
+    const filteredIcons = icons.filter((icon) => icon.name.includes(inputValue));
     renderCards(filteredIcons, iconsSection);
 });
 

@@ -3,7 +3,9 @@
 }
 
 
-
+#main-icons{
+    min-height: calc(100vh - 100px);
+}
 .bg-light-secondary{
     background-color: lightgray; 
 }
